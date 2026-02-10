@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Inventory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">💠</span>
+                <span class="logo-text">Inventory</span>
+            </div>
+            <div class="nav-links">
+                <button id="refreshBtn" class="icon-btn" title="Refresh Data">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero / Quick Actions -->
+            <section class="hero-section">
+                <h1>Manage Your Assets</h1>
+                <p>Seamlessly track and organize your digital and physical inventory.</p>
+            </section>
+
+            <div class="dashboard-grid">
+                <!-- Left Column: Input Forms -->
+                <aside class="sidebar">
+                    <div class="card form-card">
+                        <div class="card-header">
+                            <h3>Add New Item</h3>
+                        </div>
+                        <form id="addItemForm">
+                            <div class="form-group">
+                                <label for="name">Product Name</label>
+                                <input type="text" id="name" name="name" placeholder="e.g. Wireless Headphones" required
+                                    minlength="2">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="price">Price ($)</label>
+                                <input type="number" id="price" name="price" placeholder="0.00" step="0.01" required
+                                    min="0">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea id="description" name="description" placeholder="Item details..."
+                                    rows="3"></textarea>
+                            </div>
+
+                            <button type="submit" id="submitBtn" class="primary-btn">
+                                <span>Create Item</span>
+                            </button>
+                            <div id="formMessage" class="message"></div>
+                        </form>
+                    </div>
+
+                    <div class="card search-card">
+                        <h3>Lookup Item</h3>
+                        <div class="search-box">
+                            <input type="text" id="searchId" placeholder="Paste ID here...">
+                            <button id="searchBtn" class="secondary-btn">Search</button>
+                        </div>
+                        <div id="searchResult"></div>
+                    </div>
+                </aside>
+
+                <!-- Right Column: List -->
+                <section class="content-area">
+                    <div class="content-header">
+                        <h2>All Items</h2>
+                        <span class="badge" id="itemCount">0 items</span>
+                    </div>
+
+                    <div id="itemsGrid" class="items-grid">
+                        <div class="loader">Loading inventory...</div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
