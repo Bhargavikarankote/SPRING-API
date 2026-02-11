@@ -13,9 +13,11 @@ public class Item {
     @Size(min = 2, max = 100, message = "Name must be between 2 and 100 characters")
     private String name;
 
+    @NotNull(message = "description is required")
     @Size(max = 500, message = "Description cannot exceed 500 characters")
     private String description;
 
+    
     @NotNull(message = "Price is required")
     @Min(value = 0, message = "Price must be non-negative")
     private Double price;
